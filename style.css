@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: radial-gradient(circle at top, #0a0a0a 0%, #000 100%);
+  color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(0, 255, 170, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 0 30px rgba(0, 255, 170, 0.15);
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(0, 255, 170, 0.4);
+}
+
+.avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 255, 170, 0.5);
+  display: block;
+  margin: 1.5rem auto;
+}
+
+header {
+  text-align: center;
+}
+
+header h2 {
+  font-weight: 600;
+  color: #00ffaa;
+}
+
+.tagline {
+  color: #cccccc;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+.bio {
+  margin: 1rem 0;
+  text-align: center;
+  color: #bdbdbd;
+}
+
+.time {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-links a {
+  color: #00ffaa;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #00ffcc;
+}
+
+section {
+  margin-top: 1rem;
+}
+
+section h3 {
+  color: #00ffaa;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+section ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+section ul li {
+  background: rgba(0, 255, 170, 0.1);
+  border: 1px solid rgba(0, 255, 170, 0.2);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+}
