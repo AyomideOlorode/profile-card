@@ -30,6 +30,6 @@ The project doubles as a **mini personal portfolio webpage** for **Olorode Ayomi
 ## ⚙️ How to Run Locally
 1. Clone this repository:
    ```bash
-   git clone https://github.com/haywhystudios/profile-card-frontend-wizards.git
+   git clone https://github.com/ayomideolorode/profile-card-frontend-wizards.git
    cd profile-card-frontend-wizards
    
