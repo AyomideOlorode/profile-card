@@ -1,5 +1,5 @@
 # profile-card
-# Frontend Wizards — Stage 0: Profile Card
+## Frontend Wizards — Stage 0: Profile Card
 
 ## 📜 Overview
 This project is a responsive, accessible **Profile Card** built with semantic HTML, CSS, and Vanilla JavaScript.  
@@ -30,6 +30,6 @@ The project doubles as a **mini personal portfolio webpage** for **Olorode Ayomi
 ## ⚙️ How to Run Locally
 1. Clone this repository:
    ```bash
-   git clone https://github.com/ayomideolorode/profile-card-frontend-wizards.git
+   git clone https://github.com/ayomideolorode/profile-card.git
    cd profile-card-frontend-wizards
    
