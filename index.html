@@ -3,61 +3,200 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Olorode Ayomide | Sync Labs</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Preference Learning Framework | ayomideolorode.dev</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      background: var(--card);
+      width: 100%;
+      max-width: 800px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+    }
+
+    header { margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+    h2 { font-size: 1.8rem; margin-bottom: 8px; }
+    .tagline { color: var(--primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 12px; }
+    .bio { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+
+    .table-wrapper {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td { padding: 16px; border-bottom: 1px solid var(--border); }
+    th { background: #f1f5f9; font-weight: 600; font-size: 0.9rem; color: var(--text-muted); }
+    td { font-size: 0.95rem; }
+    tr:last-child td { border-bottom: none; }
+
+    .action-btn {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      background: transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      margin-right: 8px;
+    }
+
+    .btn-like:hover { border-color: var(--success); color: var(--success); background: #f0fdf4; }
+    .btn-dislike:hover { border-color: var(--danger); color: var(--danger); background: #fef2f2; }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: #e2e8f0;
+      color: var(--text-muted);
+    }
+    .status-badge.liked { background: #dcfce7; color: var(--success); }
+    .status-badge.disliked { background: #fee2e2; color: var(--danger); }
+
+    .export-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+    
+    .btn-export {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-export:hover { background: #1d4ed8; }
+    
+    .return-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+    .return-link:hover { color: var(--primary); }
+  </style>
 </head>
 <body>
-  <article class="card" data-testid="test-profile-card">
+
+  <article class="container">
     <header>
-      <h2 data-testid="test-user-name">Olorode Ayomide Emmanuel</h2>
-      <h4 class="tagline">Software Engineer • AI, Web3 & Viral Content Creator • Creative Builder</h4>
+      <h2>Human Input Data Collector</h2>
+      <h4 class="tagline">Preference Learning Framework | ayomideolorode.dev</h4>
+      <p class="bio">
+        This interface is designed to capture binary user inputs (Likes vs. Dislikes) across various data subjects. The resulting datasets are structured to train custom Python-based recommender systems and analytical models.
+      </p>
     </header>
 
-    <figure>
-  <img 
-    src="./ayomide-2.png" 
-    alt="Olorode Ayomide Emmanuel" 
-    data-testid="test-user-avatar"
-  >
-</figure>
+    <div class="table-wrapper">
+      <table id="preferenceTable">
+        <thead>
+          <tr>
+            <th>Data Subject</th>
+            <th>Category</th>
+            <th>Capture Input</th>
+            <th>Recorded State</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Data populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
 
-
-    <p class="bio" data-testid="test-user-bio">
-      A software engineer exploring the intersection of web innovation, storytelling, and computer science.
-      Passionate about building creative tools and next-gen experiences that inspire the future of digital creators and students.
-    </p>
-
-    <p class="time">
-      Current time (ms): <span data-testid="test-user-time" id="time"></span>
-    </p>
-
-    <nav aria-label="Social Links" data-testid="test-user-social-links">
-      <ul class="social-links">
-        <li><a href="https://www.youtube.com/channel/UCWCVqiuNyucVTD5wAcKlViw?sub_confirmation=1" data-testid="test-user-social-youtube" target="_blank" rel="noopener noreferrer">Youtube</a></li>
-        <li><a href="https://github.com/ayomideolorode" data-testid="test-user-social-github" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/ayomideolorode" data-testid="test-user-social-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      </ul>
-    </nav>
-
-    <section class="hobbies">
-      <h3>Hobbies</h3>
-      <ul data-testid="test-user-hobbies">
-        <li>Research, Learning & Experiments</li>
-        <li>Storytelling through visuals</li>
-        <li>Web3 & Viral community projects</li>
-      </ul>
-    </section>
-
-    <section class="dislikes">
-      <h3>Dislikes</h3>
-      <ul data-testid="test-user-dislikes">
-        <li>Creative stagnation</li>
-        <li>Unclear documentation</li>
-        <li>Unfinished ideas</li>
-      </ul>
-    </section>
+    <div class="export-row">
+      <a href="https://ayomideolorode.dev" class="return-link">← Back to Main Profile</a>
+      <button class="btn-export" onclick="exportData()">Export Dataset (JSON)</button>
+    </div>
   </article>
 
-  <script src="script.js"></script>
+  <script>
+    // Initial dataset subjects
+    const dataset = [
+      { id: 1, subject: "Algorithmic Timeline Feeds", category: "System Design", state: null },
+      { id: 2, subject: "Lightweight Data Pipelines", category: "Architecture", state: null },
+      { id: 3, subject: "Over-engineered Microservices", category: "System Design", state: null },
+      { id: 4, subject: "Performance Storytelling", category: "Media", state: null }
+    ];
+
+    const tbody = document.getElementById('tableBody');
+
+    // Render the table
+    function renderTable() {
+      tbody.innerHTML = '';
+      dataset.forEach((item, index) => {
+        
+        // Determine badge styling based on state
+        let badgeClass = '';
+        let badgeText = 'Pending';
+        if (item.state === 'Liked') { badgeClass = 'liked'; badgeText = 'Liked'; }
+        else if (item.state === 'Disliked') { badgeClass = 'disliked'; badgeText = 'Disliked'; }
+
+        const row = `
+          <tr>
+            <td><strong>${item.subject}</strong></td>
+            <td>${item.category}</td>
+            <td>
+              <button class="action-btn btn-like" onclick="recordInput(${index}, 'Liked')">👍 Like</button>
+              <button class="action-btn btn-dislike" onclick="recordInput(${index}, 'Disliked')">👎 Dislike</button>
+            </td>
+            <td><span class="status-badge ${badgeClass}">${badgeText}</span></td>
+          </tr>
+        `;
+        tbody.innerHTML += row;
+      });
+    }
+
+    // Handle user input
+    function recordInput(index, preference) {
+      dataset[index].state = preference;
+      renderTable();
+    }
+
+    // Simulate exporting the dataset for a Python backend
+    function exportData() {
+      const recordedData = dataset.filter(item => item.state !== null);
+      if (recordedData.length === 0) {
+        alert("Please record at least one preference before exporting.");
+        return;
+      }
+      
+      const jsonOutput = JSON.stringify(recordedData, null, 2);
+      console.log("Dataset Ready for Python Model:", jsonOutput);
+      alert("Dataset logged to console. Check DevTools (F12) to view the JSON output ready for your backend.");
+    }
+
+    // Initialize
+    renderTable();
+  </script>
 </body>
 </html>
